@@ -37,8 +37,8 @@ public class BookStoreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		BookStoreWSClient client = new BookStoreWSClient();
-		
-		if (action.equals("listAll")){ 
+
+		if (action == null || action.equals("listAll")){ 
 		    
 		    List<Book> books = client.getAll();
 		    request.setAttribute("booklist", books);
@@ -131,7 +131,6 @@ public class BookStoreServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
